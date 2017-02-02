@@ -48,14 +48,14 @@ for f=1:200
     VarianceM=SecondMoment-MeanM^2;
     Fanofactor(f)=(SecondMoment-(MeanM.^2))/MeanM;
 
-    fcin(f) = (1+kon/koff)^(-1)
-    kof(f) = koff
-    konn(f)= kon
-    Mean_M(f) = MeanM
-    Mean_M_Max = max(Mean_M(f))
+    fcin(f) = (1+kon/koff)^(-1);
+    kof(f) = koff;
+    konn(f)= kon;
+    Mean_M(f) = MeanM;
+    Mean_M_Max = max(Mean_M(f));
 
 end 
-scatter(fcin,Fanofactor)
-set(gca,'xscale','log')
+scatter(fcin,Fanofactor);
+set(gca,'xscale','log');
 
-Curve_fit(fcin, Fanofactor)
+Curve_fit_function(fcin, Fanofactor);

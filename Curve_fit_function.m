@@ -15,12 +15,12 @@ function [fitresult, gof] = createFit(fcin, Fanofactor)
  
 
 %% Fit: 'untitled fit 1'.
-[xData, yData] = prepareCurveData( fcin, Fanofactor );
+[xData,yData] = prepareCurveData( fcin, Fanofactor );
 
 % Set up fittype and options.
 ft = fittype( '1+x*30*((1-x)/(a+x))', 'independent', 'x', 'dependent', 'y' );
 opts = fitoptions( 'Method', 'NonlinearLeastSquares' );
-opts.Display = 'Off';
+opts.Display = 'OFF';
 opts.StartPoint = 0.808271133785348;
 
 % Fit model to data.
@@ -29,10 +29,17 @@ opts.StartPoint = 0.808271133785348;
 % Plot fit with data.
 figure( 'Name', 'untitled fit 1' );
 h = plot( fitresult, xData, yData );
+set(gca,'xscale','log');
 legend( h, 'Fanofactor vs. fcin', 'untitled fit 1', 'Location', 'NorthEast' );
+
+
+coeff =  coeffvalues(fitresult)
+
+
 % Label axes
 xlabel fcin
 ylabel Fanofactor
 grid on
+
 
 
