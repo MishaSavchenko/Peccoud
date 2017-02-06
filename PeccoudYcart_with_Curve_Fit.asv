@@ -63,8 +63,6 @@ for g=1:20
 
     Curve_fit_function(fcin, Fanofactor);
     list_of_coeff(g) = coeff;
-    
 end
-list_of_coeff
-koff/gamma
-Error_percentage = 100 * (list_of_coeff(1:end-1)-(koff/gamma))/(koff/gamma);
+ 
+Error_percentage = list_of_coeff

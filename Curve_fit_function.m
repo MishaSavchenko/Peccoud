@@ -1,4 +1,5 @@
 function [fitresult, gof] = createFit(fcin, Fanofactor)
+global coeff;
 %CREATEFIT(FCIN,FANOFACTOR)
 %  Create a fit.
 %  
@@ -27,19 +28,17 @@ opts.StartPoint = 0.808271133785348;
 [fitresult, gof] = fit( xData, yData, ft, opts );
 
 % Plot fit with data.
-figure( 'Name', 'untitled fit 1' );
-h = plot( fitresult, xData, yData );
-set(gca,'xscale','log');
-legend( h, 'Fanofactor vs. fcin', 'untitled fit 1', 'Location', 'NorthEast' );
+%figure( 'Name', 'untitled fit 1' );
+%h = plot( fitresult, xData, yData );
+%set(gca,'xscale','log');
+%legend( h, 'Fanofactor vs. fcin', 'untitled fit 1', 'Location', 'NorthEast' );
 
 
-coeff =  coeffvalues(fitresult)
+coeff =  coeffvalues(fitresult);
 
 
 % Label axes
-xlabel fcin
-ylabel Fanofactor
-grid on
-
-
+%xlabel fcin
+%ylabel Fanofactor
+%grid on
 
