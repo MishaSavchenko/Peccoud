@@ -1,5 +1,5 @@
 clear
-global coeff;
+global coeff
 for g=1:20
     for f=1:200
 
@@ -57,12 +57,13 @@ for g=1:20
         Mean_M_Max = max(Mean_M(f));
 
     end 
+    %scatter(fcin,Fanofactor)
+    %set(gca,'xscale','log')
     
-    %scatter(fcin,Fanofactor);
-    %set(gca,'xscale','log');
-
-    Curve_fit_function(fcin, Fanofactor);
-    list_of_coeff(g) = coeff;
+    Curve_fit_function_B(fcin, Fanofactor);
+    
+    list_of_coeff(g) = coeff(1)/coeff(2);
 end
- 
-Error_percentage = list_of_coeff
+list_of_coeff
+r/gamma
+Error_percentage = 100 * (list_of_coeff(1:end-1)-(koff/gamma))/(koff/gamma);
