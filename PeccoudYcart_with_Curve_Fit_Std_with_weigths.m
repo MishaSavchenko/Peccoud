@@ -61,7 +61,7 @@ end
 fcinw = fcin;
 
 for i = 1:length(fcin)
-    if fcin(i) > .3
+    if fcin(i) > .3 && fcin(i)<.7
         i_list(i) = i;          
     end
 end
@@ -71,7 +71,7 @@ end
 for n = 1:length(fcin)
 
     if length(i_list) >= n
-        fcinw(n) = 10;  
+        fcinw(n) = 5;  
     else
         fcinw(n)=1;
     end
