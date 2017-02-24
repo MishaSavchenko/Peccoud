@@ -71,7 +71,7 @@ end
 for n = 1:length(fcin)
 
     if length(i_list) >= n
-        fcinw(n) = 5;  
+        fcinw(n) = 10;  
     else
         fcinw(n)=1;
     end

@@ -1,4 +1,4 @@
-function [fitresult, gof] = createFit(fcin, Fanofactor)
+function [fitresult, gof] = createFit(fcin, Fanofactor,fcinw)
 global coeff;
 %CREATEFIT(FCIN,FANOFACTOR)
 %  Create a fit.
@@ -16,7 +16,7 @@ global coeff;
  
 
 %% Fit: 'untitled fit 1'.
-[xData,yData] = prepareCurveData( fcin, Fanofactor );
+[xData,yData,weights] = prepareCurveData( fcin, Fanofactor, fcinw );
 
 % Set up fittype and options.
 ft = fittype( '1+x*30*((1-x)/(a+x))', 'independent', 'x', 'dependent', 'y' );
@@ -24,6 +24,7 @@ opts = fitoptions( 'Method', 'NonlinearLeastSquares' );
 opts.Display = 'OFF';
 opts.StartPoint = 0.808271133785348;
 opts.Weights = weights;
+
 % Fit model to data.
 [fitresult, gof] = fit( xData, yData, ft, opts );
  
@@ -31,8 +32,7 @@ opts.Weights = weights;
 figure( 'Name', 'untitled fit 1' );
 h = plot( fitresult, xData, yData );
 set(gca,'xscale','log');
-legend( h, 'Fanofactor vs. fcin', 'untitled fit 1', 'Location', 'NorthEast' );
-
+legend( h, 'Fanofactor vs. fcin with fcinw', 'untitled fit 1', 'Location', 'NorthEast' );
 
 coeff =  coeffvalues(fitresult);
 
