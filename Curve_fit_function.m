@@ -23,7 +23,7 @@ ft = fittype( '1+x*30*((1-x)/(a+x))', 'independent', 'x', 'dependent', 'y' );
 opts = fitoptions( 'Method', 'NonlinearLeastSquares' );
 opts.Display = 'OFF';
 opts.StartPoint = 0.808271133785348;
-opts.Weights = weights;
+
 % Fit model to data.
 [fitresult, gof] = fit( xData, yData, ft, opts );
  

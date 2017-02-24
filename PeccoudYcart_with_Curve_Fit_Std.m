@@ -58,31 +58,11 @@ for f=1:200
 
 end 
 
-fcinw = fcin;
-
-for i = 1:length(fcin)
-    if fcin(i) > .3
-        i_list(i) = i;          
-    end
-end
-
-
-
-for n = 1:length(fcin)
-
-    if length(i_list) >= n
-        fcinw(n) = 5;  
-    else
-        fcinw(n)=1;
-    end
-end
-fcinw;
-
 
 scatter(fcin,Fanofactor);
 set(gca,'xscale','log');
 
-Curve_fit_function_with_weigth(fcin, Fanofactor,fcinw)
+Curve_fit_function(fcin, Fanofactor)
 list_of_coeff = coeff;
 
 
